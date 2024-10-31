@@ -13,10 +13,11 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f0xx.h"      // CMSIS device header for STM32F0 series
+#include "stm32f0xx_hal.h"      // STM32Cube HAL header
 #include <stdio.h>
 
 /* Exported constants --------------------------------------------------------*/
+/* Define constants related to the temperature sensor and other peripherals */
 #define TEMP_SENSOR_PIN         GPIO_PIN_0        // PA0
 #define TEMP_SENSOR_GPIO_PORT   GPIOA              // GPIO Port A
 #define TEMP_SENSOR_ADC_CHANNEL ADC_CHANNEL_0      // ADC Channel 0
@@ -29,13 +30,13 @@ extern "C" {
 /* Exported function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_GPIO_Init(void);
-void MX_ADC1_Init(void);
+void MX_ADC_Init(void);
 void MX_USART2_UART_Init(void);
 float Read_Temperature(void);
 
 /* External variables --------------------------------------------------------*/
-extern ADC_HandleTypeDef hadc1;    // ADC1 handle
-extern UART_HandleTypeDef huart2;  // USART2 handle
+extern ADC_HandleTypeDef hadc;
+extern UART_HandleTypeDef huart2;
 
 #ifdef __cplusplus
 }
